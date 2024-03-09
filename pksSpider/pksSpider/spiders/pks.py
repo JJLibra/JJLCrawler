@@ -13,7 +13,7 @@ class PksSpider(CrawlSpider):
         Rule(LinkExtractor(allow=r'/files/tags/exploit/page(.*?)'), callback='parse_vul_list', follow=True),
     )
 
-    # 获取所有漏洞网址链接
+    # 获取当前页漏洞网址链接
     def parse_vul_list(self, response):
         vul_list = response.xpath('//a[@class="ico text-plain"]/@href').extract()
         for vul in vul_list:
@@ -21,7 +21,7 @@ class PksSpider(CrawlSpider):
             requst = scrapy.Request(url=vul_url, callback=self.parse_vul_inf)
             yield requst
 
-    # 信息爬取总函数
+    # 详情页数据分析
     def parse_vul_inf(self, response):
         item = {}
         
