@@ -1,4 +1,4 @@
-# Scrapy settings for doubanSpider project
+# Scrapy settings for ajkzfspider project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,28 +7,18 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-from fake_useragent import UserAgent
+BOT_NAME = 'ajkzfspider'
 
-BOT_NAME = 'doubanSpider'
-
-SPIDER_MODULES = ['doubanSpider.spiders']
-NEWSPIDER_MODULE = 'doubanSpider.spiders'
-
-USER_AGENT = UserAgent().random
-
-ROBOTSTXT_OBEY = False
-
-ITEM_PIPELINES = {
-   'doubanSpider.pipelines.DoubanspiderPipeline': 300,
-}
+SPIDER_MODULES = ['ajkzfspider.spiders']
+NEWSPIDER_MODULE = 'ajkzfspider.spiders'
 
 FEED_EXPORT_ENCODING = 'utf-8'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'doubanSpider (+http://www.yourdomain.com)'
+#USER_AGENT = 'ajkzfspider (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-# ROBOTSTXT_OBEY = False
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -36,13 +26,13 @@ FEED_EXPORT_ENCODING = 'utf-8'
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 3 # 防止频繁访问网页会被检测出来非正常操作
+DOWNLOAD_DELAY = 3
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-# COOKIES_ENABLED = True
+COOKIES_ENABLED = True
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -53,33 +43,33 @@ DEFAULT_REQUEST_HEADERS = {
   'Accept-Language': 'en',
 }
 
-# USER_AGENTS = [
-#     "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 "
-#     "(KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1",
-#     "Mozilla/5.0 (X11; CrOS i686 2268.111.0) AppleWebKit/536.11 "
-#     "(KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11",
-#     "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 "
-#     "(KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6",
-#     "Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.6 "
-#     "(KHTML, like Gecko) Chrome/20.0.1090.0 Safari/536.6",
-#     "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 "
-#     "(KHTML, like Gecko) Chrome/19.77.34.5 Safari/537.1",
-#     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/536.5 "
-#     "(KHTML, like Gecko) Chrome/19.0.1084.9 Safari/536.5"
-# ]
+USER_AGENTS = [
+    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 "
+    "(KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1",
+    "Mozilla/5.0 (X11; CrOS i686 2268.111.0) AppleWebKit/536.11 "
+    "(KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11",
+    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 "
+    "(KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6",
+    "Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.6 "
+    "(KHTML, like Gecko) Chrome/20.0.1090.0 Safari/536.6",
+    "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 "
+    "(KHTML, like Gecko) Chrome/19.77.34.5 Safari/537.1",
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/536.5 "
+    "(KHTML, like Gecko) Chrome/19.0.1084.9 Safari/536.5"
+]
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-# SPIDER_MIDDLEWARES = {
-#    'doubanSpider.middlewares.DoubanspiderSpiderMiddleware': 543,
-# }
+#SPIDER_MIDDLEWARES = {
+#    'ajkzfspider.middlewares.AjkzfspiderSpiderMiddleware': 543,
+#}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-# DOWNLOADER_MIDDLEWARES = {
-#    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
-#    'doubanSpider.middlewares.RandomUserAgent': 410,
-# }
+DOWNLOADER_MIDDLEWARES = {
+   'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+   'ajkzfspider.middlewares.RandomUserAgent': 410,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -89,9 +79,9 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    'doubanSpider.pipelines.DoubanspiderPipeline': 300,
-# }
+ITEM_PIPELINES = {
+   'ajkzfspider.pipelines.AjkzfspiderPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

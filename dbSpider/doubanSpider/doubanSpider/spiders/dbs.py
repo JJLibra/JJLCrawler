@@ -15,7 +15,7 @@ class DoubanDetailsSpiderSpider(scrapy.Spider):
     step_time = 5  # 停顿时间
     page_number = 0  # 控制页号，利用每一页25部电影进行传参换页
 
-    # 数据分析
+    # 基础分析
     def parse(self, response):
         # 提取当前页电影基础信息
         node_list = response.xpath('//div[@class="info"]')
