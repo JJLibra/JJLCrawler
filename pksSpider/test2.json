@@ -1,0 +1,6 @@
+[
+{"title": "WordPress Admin Bar And Dashboard Access Control 1.28 XSS", "author": "Rachit Arora", "date": "", "des": "WordPress Admin Bar and Dashboard Access Control plugin version 1.28 suffers from a persistent cross site scripting vulnerability.", "vul_type": "", "CVE-ID": "CVE-2023-47184", "poc": "# Exploit Title:  WordPress Plugin Admin Bar & Dashboard Access Control Version: 1.2.8 - \"Dashboard Redirect\" field  Stored Cross-Site Scripting (XSS)"},
+{"title": "Dotclear 2.29 Cross Site Scripting", "author": "tmrswrr", "date": "", "des": "Dotclear version 2.29 suffers from a cross site scripting vulnerability.", "vul_type": "", "CVE-ID": "", "poc": "# Exploit Title: Dotclear Version : 2.29 - Reflected XSS "},
+{"title": "Metabase 0.46.6 Remote Code Execution", "author": "Musyoka Ian", "date": "", "des": "Metabase version 0.46.6 pre-authentication remote code execution exploit.", "vul_type": "", "CVE-ID": "CVE-2023-38646", "poc": "# Exploit Title: metabase 0.46.6 - Pre-Auth Remote Code Execution"},
+{"title": "MongoDB 2.0.1 / 2.1.1 / 2.1.4 / 2.1.5 Local Password Disclosure", "author": "Emad Al-Mousa", "date": "", "des": "MongoDB versions 2.0.1, 2.1.1, 2.1.4, and 2.1.5 appear to suffer from multiple localized password disclosure issues.", "vul_type": "", "CVE-ID": "", "poc": "Title: MongoDB MONGOSH Password Exposure Vulnerability"}
+]

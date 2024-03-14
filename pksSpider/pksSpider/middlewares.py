@@ -4,7 +4,8 @@
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 import random
-
+from selenium.webdriver import Chrome
+from scrapy.http import HtmlResponse
 from scrapy import signals
 
 # useful for handling different item types with a single interface
@@ -71,16 +72,9 @@ class PksspiderDownloaderMiddleware:
         return s
 
     def process_request(self, request, spider):
-        # Called for each request that goes through the downloader
-        # middleware.
-
-        # Must either:
-        # - return None: continue processing this request
-        # - or return a Response object
-        # - or return a Request object
-        # - or raise IgnoreRequest: process_exception() methods of
-        #   installed downloader middleware will be called
-        return None
+        spider.driver.get(request.url)
+        html = spider.driver.page_source
+        return HtmlResponse(url=request.url, request=request, body=html, encoding='utf-8')
 
     def process_response(self, request, response, spider):
         # Called with the response returned from the downloader.
@@ -104,14 +98,15 @@ class PksspiderDownloaderMiddleware:
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
 
+
 class RandomUserAgent(object):
 
-    def __init__(self,agents):
+    def __init__(self, agents):
         self.agents = agents
-    
+
     @classmethod
-    def from_crawler(cls,crawler):
+    def from_crawler(cls, crawler):
         return cls(crawler.settings.getlist('USER_AGENTS'))
-    
-    def process_request(self,request,spider):
+
+    def process_request(self, request, spider):
         request.headers.setdefault('User-Agent', random.choice(self.agents))

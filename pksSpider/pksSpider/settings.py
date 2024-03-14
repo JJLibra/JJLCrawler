@@ -40,6 +40,7 @@ COOKIES_ENABLED = True
 DEFAULT_REQUEST_HEADERS = {
   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
   'Accept-Language': 'en',
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
 }
 
 USER_AGENTS = [
@@ -66,8 +67,9 @@ USER_AGENTS = [
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-   'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
-   'pksSpider.middlewares.RandomUserAgent': 410,
+   # 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+   # 'pksSpider.middlewares.RandomUserAgent': 410,
+   'pksSpider.middlewares.PksspiderDownloaderMiddleware': 300,
 }
 
 # Enable or disable extensions
