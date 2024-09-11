@@ -11,9 +11,9 @@
 作者学习使用 Scrapy、Selenium、Playwright 时实现的 demo 合集，部分爬虫具有一定时效性，有可能失效，请自行识别。
 
 为方便大家的学习使用，主分支下的每一类别目录中都有对应 crawler 的使用说明：
-- [Scrapy]()
-- [Selenium]()
-- [Playwright]()
+- [Scrapy](./Scrapy/README.md)
+- [Selenium](./Selenium/README.md)
+- [Playwright](./Playwright/README.md)
 
 ## 免责声明
 <div id="disclaimer"> 
