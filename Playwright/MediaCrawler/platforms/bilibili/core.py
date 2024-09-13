@@ -1,12 +1,12 @@
-from typing import List, Optional
-
-from playwright.async_api import Page, BrowserContext, async_playwright
-
 import config
+
+from typing import List, Optional
+from playwright.async_api import Page, BrowserContext, async_playwright
+from tools import utils
 
 from basicCrawler.base_crawler import AbstractCrawler
 from .client import BilibiliClient
-from tools import utils
+from .login import BilibiliLogin
 
 
 class BilibiliCrawler(AbstractCrawler):
@@ -41,8 +41,12 @@ class BilibiliCrawler(AbstractCrawler):
             await self.context_page.goto(self.index_url)
 
             # 创建 bilibili 客户端（尤其像是登录操作）: 便于API的调用
-            # Todo
-            pass
+            # 1.创建 bili 客户端
+            self.bili_client = await self.create_bilibili_client(httpx_proxy_format)
+            # 2.检查登录状态
+            if not await self.bili_client.pong():
+                # Todo
+                pass
 
             # crawler_type_var.set(config.CRAWLER_TYPE)
             if config.CRAWLER_TYPE == "search":
@@ -59,7 +63,20 @@ class BilibiliCrawler(AbstractCrawler):
                 pass
 
     async def create_bilibili_client(self, httpx_proxy: Optional[str]) -> BilibiliClient:
-        pass
+        cookie_str, cookie_dict = utils.convert_cookies(await self.browser_context.cookies())
+        bilibili_client_obj = BilibiliClient(
+            proxies=httpx_proxy,
+            headers={
+                "User-Agent": self.user_agent,
+                "Cookie": cookie_str,
+                "Origin": "https://www.bilibili.com",
+                "Referer": "https://www.bilibili.com",
+                "Content-Type": "application/json;charset=UTF-8"
+            },
+            playwright_page=self.context_page,
+            cookie_dict=cookie_dict,
+        )
+        return bilibili_client_obj
 
     async def search(self):
         pass

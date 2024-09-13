@@ -1,4 +1,7 @@
 import random
+from typing import Optional, List, Tuple, Dict
+
+from playwright.async_api import Cookie
 
 from . import utils
 
@@ -27,3 +30,13 @@ def get_user_agent() -> str:
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.5112.79 Safari/537.36"
     ]
     return random.choice(ua_list)
+
+
+def convert_cookies(cookies: Optional[List[Cookie]]) -> Tuple[str, Dict]:
+    if not cookies:
+        return "", {}
+    cookies_str = ";".join([f"{cookie.get('name')}={cookie.get('value')}" for cookie in cookies])
+    cookie_dict = dict()
+    for cookie in cookies:
+        cookie_dict[cookie.get('name')] = cookie.get('value')
+    return cookies_str, cookie_dict
