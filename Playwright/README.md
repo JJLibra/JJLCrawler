@@ -1,6 +1,10 @@
-## Playwright
+# Playwright
 
 与 Selenium 类似的自动化工具
+
+## bilibili-api-python
+
+这是作者用于学习理解`B站`api的工具包，如果不熟悉bilibili的api，在 MediaCrawler 的学习过程中会遇到困难（像作者这样的初学者比较难理解有些代码的意义）
 
 ## MediaCrawler
 

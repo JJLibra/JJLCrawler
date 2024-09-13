@@ -1,4 +1,4 @@
-## Selenium
+# Selenium
 
 模拟浏览器的自动化工具，很好用，但个人偏向于使用 Playwright。
 
