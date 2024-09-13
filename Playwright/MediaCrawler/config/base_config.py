@@ -4,6 +4,7 @@ LOGIN_TYPE = 'qrcode'
 CRAWLER_TYPE = 'search'
 START_PAGE = 1
 
+# 是否启用 ip 代理池
 ENABLE_IP_PROXY = False
 
 HEADLESS = False

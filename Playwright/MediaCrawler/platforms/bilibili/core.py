@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 from playwright.async_api import Page, BrowserContext, async_playwright
 
@@ -20,9 +20,10 @@ class BilibiliCrawler(AbstractCrawler):
         self.user_agent = utils.get_user_agent()
 
     async def start(self):
+        playwright_proxy_format, httpx_proxy_format = None, None
         # ip 代理池: 避免因频繁访问而被封禁，也可提高匿名性
         if config.ENABLE_IP_PROXY:
-            # Todo: tools/crawler_util&utils
+            # Todo
             pass
 
         # 开始使用 playwright
@@ -56,6 +57,9 @@ class BilibiliCrawler(AbstractCrawler):
                     await self.get_creator_videos(int(creator_id))
             else:
                 pass
+
+    async def create_bilibili_client(self, httpx_proxy: Optional[str]) -> BilibiliClient:
+        pass
 
     async def search(self):
         pass
