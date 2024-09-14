@@ -3,8 +3,10 @@ import asyncio
 import cmd_arg
 import config
 from base.base_crawler import AbstractCrawler
+from modules.colu_section import SectionCrawler
 from modules.emoji import EmojiCrawler
 from modules.ip_address import IpCrawler
+from modules.music import MusicCrawler
 from modules.search import SearchCrawler
 from modules.topic import TopicCrawler
 from modules.user import UserCrawler
@@ -18,7 +20,9 @@ class CrawlerFactory:
         'user': UserCrawler,
         'search': SearchCrawler,
         'topic': TopicCrawler,
-        'emoji': EmojiCrawler
+        'emoji': EmojiCrawler,
+        'section': SectionCrawler,
+        'music': MusicCrawler
     }
 
     @staticmethod
