@@ -3,6 +3,7 @@ import asyncio
 import cmd_arg
 import config
 from base.base_crawler import AbstractCrawler
+from modules.emoji import EmojiCrawler
 from modules.ip_address import IpCrawler
 from modules.search import SearchCrawler
 from modules.topic import TopicCrawler
@@ -16,7 +17,8 @@ class CrawlerFactory:
         'video': VideoCrawler,
         'user': UserCrawler,
         'search': SearchCrawler,
-        'topic': TopicCrawler
+        'topic': TopicCrawler,
+        'emoji': EmojiCrawler
     }
 
     @staticmethod
