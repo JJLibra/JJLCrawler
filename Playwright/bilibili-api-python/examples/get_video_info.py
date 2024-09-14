@@ -14,12 +14,12 @@ async def get_video_info():
     """
     bv_id = 'BV1ej421S7wn'
 
-    credential = Credential(sessdata=config.SESSDATA, bili_jct=config.BILI_JCT, buvid3=config.BUVID3)
+    credential = Credential(sessdata=config.SESS_DATA, bili_jct=config.BILI_JCT, buvid3=config.BUV_ID3)
     v = video.Video(bvid=bv_id, credential=credential)
     info = await v.get_info()  # 获取视频信息
 
     await file_write_to_json(bv_id=bv_id, data=info)  # 保存到json文件中，方便阅读
-    await v.like(True)  # 视频点赞
+    # await v.like(True)  # 视频点赞
 
 
 async def file_write_to_json(bv_id: str, data: Dict):
