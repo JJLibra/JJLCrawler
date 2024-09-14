@@ -17,6 +17,6 @@ async def parse_cmd():
     args = parser.parse_args()
 
     # override config
-    config.PLATFORM = args.module
+    config.MODULE = args.module
     config.LOGIN_TYPE = args.login
     config.START_PAGE = args.start
