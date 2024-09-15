@@ -50,8 +50,8 @@ class VideoCrawler(AbstractCrawler):
                     'Fetch video comments',
                     'Fetch video barrages',
                     'Fetch video votes',
-                    'Fetch homepage videos'
-                    'Get the video under the Videos tab'
+                    'Fetch homepage videos',
+                    'Get the video under the Videos tab',
                     'Get the number of currently online people'
                 ]
             }
