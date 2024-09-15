@@ -89,9 +89,9 @@ async def upload_video():
                 else:
                     print("已经是第一步，无法回退。")
             elif result is None:
-                return None  # 用户输入 'exit'，直接退出
+                return None
             else:
-                input_steps.append(result)  # 保存步骤
+                input_steps.append(result)
                 return result
 
     # 获取用户输入
@@ -103,7 +103,7 @@ async def upload_video():
     if title is None:
         return
 
-    tags = step("tags (eg. tag1, tag2,...): ", str, lambda x: x.split(','))
+    tags = step("tags (eg. tag1, tag2,...): ", str, lambda x: [tag.strip() for tag in x.split(',')])
     if tags is None:
         return
 
@@ -119,8 +119,9 @@ async def upload_video():
     if path is None:
         return
 
-    logger.info("For other optional configuration items, please go to config/video.py.")
+    logger.info(f"For other optional configuration items, please go to config/video.py.{tags}")
 
+    # 创建 VideoMeta 对象
     vu_meta = video_uploader.VideoMeta(tid=tid,
                                        title=title,
                                        tags=tags,
