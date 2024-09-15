@@ -1,6 +1,6 @@
 <p align="center">
     <a target="_blank" href="https://github.com/JJLibra/JJLCrawler">
-        <img src="https://github.com/JJLibra/JJLCrawler/blob/main/JJLCrawler/doc/crawler.png" alt="astar-logo" width="150" data-width="150" data-height="150">
+        <img src="https://github.com/JJLibra/JJLCrawler/blob/main/BiliCrawler/docs/crawler.png" alt="astar-logo" width="150" data-width="150" data-height="150">
     </a>
 </p>
 
