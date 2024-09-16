@@ -1,6 +1,6 @@
 <p align="center">
     <a target="_blank" href="https://github.com/JJLibra/JJLCrawler">
-        <img src="https://github.com/JJLibra/JJLCrawler/blob/main/JJLCrawler/doc/crawler.png" alt="astar-logo" width="150" data-width="150" data-height="150">
+        <img src="https://github.com/JJLibra/JJLCrawler/blob/main/BiliCrawler/docs/crawler.png" alt="astar-logo" width="150" data-width="150" data-height="150">
     </a>
 </p>
 
@@ -39,7 +39,8 @@
 - [Playwright](./Playwright/README.md)
 
 前两者完全是小型 demo，纯属是熟悉工具，练习使用的。
-但是后两者，还是花了几天的时间开发的，大家根据自己需要查看即可。
+
+后两者还是花了几天的时间开发的，大家根据自己需要查看即可。
 
 ## 🔥 免责声明
 <div id="disclaimer"> 

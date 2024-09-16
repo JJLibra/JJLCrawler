@@ -10,7 +10,7 @@ from bilibili_api import video, Credential
 async def fetch_video_info():
     logger.info("Fetching video info started.")
 
-    bv_id = input("You haven't configured the video BV ID, please enter the BV ID of the video: ").strip()
+    bv_id = input("Please enter the BV ID of the video: ").strip()
     if not bv_id.startswith('BV') or len(bv_id) != 12:
         logger.error(f"Invalid BV ID: {bv_id}")
         print("Invalid BV ID. Currently, only 12-bit is supported, please make sure it's a valid Bilibili BV ID.")
